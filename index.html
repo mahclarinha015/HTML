@@ -1,43 +1,365 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Playlist Urbana</title>
-  <link rel="stylesheet" href="main.css">
+<meta charset="UTF-8">
+<title>Maison Éternelle</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ====== RESET E ESTILO BASE ====== */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+body { background: #ffe6f0; color: #5a3e36; text-align: center; }
+a { text-decoration: none; color: inherit; }
+
+/* ====== HEADER ====== */
+header {
+    background: #f9c0d0;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+header h1 {
+    font-family: Georgia, serif;
+    font-size: 36px;
+    color: #b08d57;
+    margin-bottom: 10px;
+}
+nav a {
+    margin: 0 15px;
+    font-weight: bold;
+    color: #b08d57;
+    cursor: pointer;
+}
+nav a:hover { color: #ff7fbf; }
+
+/* ====== SEÇÕES ====== */
+.section { display: none; padding: 30px; }
+.active { display: block; }
+
+/* ====== FORMULÁRIOS ====== */
+.center-page {
+    display: flex; justify-content: center; align-items: center; height: 70vh;
+}
+.form-container {
+    background: #fff0f5;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    width: 350px;
+}
+.form-container img { width: 100px; margin-bottom: 15px; }
+.form-container h2 { color: #b08d57; margin-bottom: 20px; }
+input, select, textarea {
+    width: 100%; padding: 10px; margin-bottom: 15px; border: 2px solid #ffb6c1; border-radius: 8px;
+}
+button {
+    background: #b08d57; color: white; padding: 10px 20px;
+    border: none; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s;
+}
+button:hover { background: #ff7fbf; }
+
+/* ====== PRODUTOS ====== */
+.products-page h2 { margin-bottom: 20px; }
+.category-buttons { margin-bottom: 20px; }
+.category-buttons button {
+    background: #b08d57; color: white; padding: 10px 15px;
+    border: none; border-radius: 8px; margin: 0 5px; cursor: pointer;
+}
+.category-buttons button:hover { background: #ff7fbf; }
+
+.category { margin-bottom: 30px; }
+.product-grid {
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 20px;
+}
+.product {
+    background: #fff0f5; padding: 15px; border-radius: 15px; width: 150px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.product img { width: 100%; border-radius: 10px; }
+.product p { margin: 10px 0; font-weight: bold; }
+
+/* ====== RODAPE ====== */
+footer { background: #f9c0d0; padding: 15px; margin-top: 20px; }
+</style>
 </head>
 <body>
-    <img src="PROJETO BG/img/musica.png" alt="Notas Musicais" width="300">
-  <header>
-    <h1>🎧 Playlist Urbana</h1>
-    <p>Escute os sons que estão dominando as ruas</p>
-  </header>
 
-  <main>
-    <section class="musica">
-      <h2>MC IG - Noite Fria</h2>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/lKNdzn_VL0k?si=kzPGVPIZyhL2Flk2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </section>
+<header>
+    <h1>Maison Éternelle</h1>
+    <nav>
+        <a onclick="showSection('cadastro')">Cadastro</a>
+        <a onclick="showSection('destaques')">Destaques</a>
+        <a onclick="showSection('produtos')">Produtos</a>
+        <a onclick="showSection('pagamento')">Pagamento</a>
+        <a onclick="showSection('entrega')">Entrega</a>
+        <a onclick="showSection('contato')">Contato</a>
+    </nav>
+</header>
 
-    <section class="musica">
-      <h2>Matuê - Anos Luz</h2>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/m226f2reF28?si=-6Pu2fSb-J2jDEkz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </section>
+<!-- ====== CADASTRO ====== -->
+<div id="cadastro" class="section active">
+    <div class="center-page">
+        <div class="form-container">
+            <img src="logo.png" alt="Logo Maison Éternelle">
+            <h2>Cadastro de Cliente</h2>
+            <input type="text" placeholder="Nome Completo" required>
+            <input type="email" placeholder="Email" required>
+            <input type="tel" placeholder="Telefone">
+            <input type="password" placeholder="Senha" required>
+            <button onclick="showSection('destaques')">Cadastrar</button>
+        </div>
+    </div>
+</div>
 
-    <section class="musica">
-      <h2>jorge e matheus - 31/12</h2>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/Uv7oK2r-yyE?si=xvK-sbEOXbfdfGht" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </section>
+<!-- ====== DESTAQUES ====== -->
+<div id="destaques" class="section">
+    <div class="products-page">
+        <h2>✨ Perfumes Mais Vendidos ✨</h2>
+        <div class="product-grid">
+            <div class="product">
+                <img src="feminio3.png" alt="Miss Dior">
+                <p>Miss Dior</p>
+                <p>R$ 500,00</p>
+                <button onclick="showSection('pagamento')">Comprar</button>
+            </div>
+            <div class="product">
+                <img src="masculino 1.png" alt="Million">
+                <p>1 Million</p>
+                <p>R$ 520,00</p>
+                <button onclick="showSection('pagamento')">Comprar</button>
+            </div>
+            <div class="product">
+                <img src="infantil3.png" alt="Scandal">
+                <p>Scandal</p>
+                <p>R$ 380,00</p>
+                <button onclick="showSection('pagamento')">Comprar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
+<!-- ====== PRODUTOS ====== -->
+<div id="produtos" class="section">
+    <div class="products-page">
+        <h2>Perfumes Disponíveis</h2>
 
+        <!-- Botões de categorias -->
+        <div class="category-buttons">
+            <button onclick="showCategory('feminino')">Feminino</button>
+            <button onclick="showCategory('masculino')">Masculino</button>
+            <button onclick="showCategory('infantil')">Infantil</button>
+            <button onclick="showCategory('bebes')">Bebês</button>
+            <button onclick="showCategory('pets')">Pets</button>
+        </div>
 
-    <p class="creditos">
-      Mais sons em <a href="https://www.youtube.com" target="_blank">YouTube</a>
-    </p>
-  </main>
+        <!-- Categorias -->
+        <div class="category" id="feminino">
+            <div class="product-grid">
+                <div class="product">
+                    <img src="feminio 1.png" alt="Prada">
+                    <p>Prada</p>
+                    <p>R$ 450,00</p>
+                    <button onclick="showSection('pagamento')">Comprar</button>
+                </div>
+                <div class="product">
+                    <img src="feminino2.png" alt="Scandal">
+                    <p>Scandal</p>
+                    <p>R$ 380,00</p>
+                    <button onclick="showSection('pagamento')">Comprar</button>
+                </div>
+                <div class="product">
+                    <img src="feminio3.png" alt="Miss Dior">
+                    <p>Miss Dior</p>
+                    <p>R$ 500,00</p>
+                    <button onclick="showSection('pagamento')">Comprar</button>
+                </div>
+            </div>
+        </div>
 
-  <footer>
-    <p>&copy; 2025 Playlist Urbana</p>
-  </footer>
+        <div class="category" id="masculino" style="display:none">
+            <div class="product-grid">
+                <div class="product">
+                    <img src="masculino 1.png" alt="Sauvagem">
+                    <p>Sauvagem</p>
+                    <p>R$ 470,00</p>
+                    <button onclick="showSection('pagamento')">Comprar</button>
+                </div>
+                <div class="product">
+                    <img src="masculino2.png" alt="Million">
+                    <p>Million</p>
+                    <p>R$ 520,00</p>
+                    <button onclick="showSection('pagamento')">Comprar</button>
+                </div>
+                <div class="product">
+                    <img src="masculino3.png" alt="BOSS">
+                    <p>BOSS</p>
+                    <p>R$ 430,00</p>
+                    <button onclick="showSection('pagamento')">Comprar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="category" id="infantil" style="display:none">
+            <div class="product-grid">
+                <div class="product">
+                    <img src="infantil 1.png" alt="Ciclo mini Feminino">
+                    <p>Ciclo mini Feminino</p>
+                    <p>R$ 120,00</p>
+                    <button onclick="showSection('pagamento')">Comprar</button>
+                </div>
+                <div class="product">
+                    <img src="infaltil masculino.png" alt="Ciclo mini Masculino">
+                    <p>Ciclo mini Masculino</p>
+                    <p>R$ 115,00</p>
+                    <button onclick="showSection('pagamento')">Comprar</button>
+                </div>
+                <div class="product">
+                    <img src="infantil3.png" alt="Ciclo Kiss">
+                    <p>Ciclo Kiss</p>
+                    <p>R$ 130,00</p>
+                    <button onclick="showSection('pagamento')">Comprar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="category" id="bebes" style="display:none">
+            <div class="product-grid">
+                <div class="product">
+                    <img src="bebe 1.png" alt="Musti">
+                    <p>Musti</p>
+                    <p>R$ 90,00</p>
+                    <button onclick="showSection('pagamento')">Comprar</button>
+                </div>
+                <div class="product">
+                    <img src="bebe2.png" alt="Mamãe e bebê">
+                    <p>Mamãe e bebê</p>
+                    <p>R$ 100,00</p>
+                    <button onclick="showSection('pagamento')">Comprar</button>
+                </div>
+                <div class="product">
+                    <img src="bebe3.png" alt="Granado">
+                    <p>Granado</p>
+                    <p>R$ 110,00</p>
+                    <button onclick="showSection('pagamento')">Comprar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="category" id="pets" style="display:none">
+            <div class="product-grid">
+                <div class="product">
+                    <img src="pet1.png" alt="Pet Passion">
+                    <p>Pet Passion</p>
+                    <p>R$ 80,00</p>
+                    <button onclick="showSection('pagamento')">Comprar</button>
+                </div>
+                <div class="product">
+                    <img src="pet2.png" alt="Pet Society">
+                    <p>Pet Society</p>
+                    <p>R$ 85,00</p>
+                    <button onclick="showSection('pagamento')">Comprar</button>
+                </div>
+                <div class="product">
+                    <img src="pet3.png" alt="Pet Vetys">
+                    <p>Pet Vetys</p>
+                    <p>R$ 90,00</p>
+                    <button onclick="showSection('pagamento')">Comprar</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ====== PAGAMENTO ====== -->
+<div id="pagamento" class="section">
+    <div class="center-page">
+        <div class="form-container">
+            <h2>Pagamento</h2>
+            <label>Escolha a forma de pagamento:</label>
+            <select id="payment-method" onchange="updatePaymentInput()">
+                <option value="cartao">Cartão de Crédito</option>
+                <option value="pix">Pix</option>
+                <option value="qrcode">QRCode</option>
+            </select>
+
+            <!-- Input para cartão ou Pix -->
+            <div id="payment-input">
+                <input type="text" placeholder="Número do cartão">
+            </div>
+
+            <!-- Área para mostrar código Pix ou QRCode -->
+            <div id="pix-info" style="display:none; margin-top: 10px;">
+                <p>Chave Pix: <strong>123e4567-e89b-12d3-a456-426614174000</strong></p>
+                <p>Código QR:</p>
+                <img src="qrcodepix.png" alt="QRCode Pix" style="width:150px; height:150px;">
+            </div>
+
+            <button onclick="showSection('entrega')">Finalizar Pagamento</button>
+        </div>
+    </div>
+</div>
+
+<!-- ====== ENTREGA ====== -->
+<div id="entrega" class="section">
+    <div class="center-page">
+        <div class="form-container">
+            <h2>Cadastro de Entrega</h2>
+            <input type="text" placeholder="Nome Completo" required>
+            <input type="text" placeholder="Endereço" required>
+            <input type="text" placeholder="Cidade" required>
+            <input type="text" placeholder="CEP" required>
+            <input type="tel" placeholder="Telefone" required>
+            <button onclick="showSection('contato')">Finalizar Pedido</button>
+        </div>
+    </div>
+</div>
+
+<!-- ====== CONTATO ====== -->
+<div id="contato" class="section">
+    <div class="center-page">
+        <div class="form-container">
+            <h2>Envie uma Mensagem</h2>
+            <input type="text" placeholder="Nome" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Mensagem" rows="5" required></textarea>
+            <button>Enviar Mensagem</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2025 Maison Éternelle | Contato: contato@maisoneternelle.com</p>
+</footer>
+
+<script>
+function showSection(sectionId){
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(sec => sec.classList.remove('active'));
+    document.getElementById(sectionId).classList.add('active');
+}
+
+function showCategory(categoryId){
+    const categories = document.querySelectorAll('.category');
+    categories.forEach(cat => cat.style.display = 'none');
+    document.getElementById(categoryId).style.display = 'block';
+}
+
+function updatePaymentInput() {
+    const method = document.getElementById('payment-method').value;
+    const inputDiv = document.getElementById('payment-input');
+    const pixDiv = document.getElementById('pix-info');
+
+    if(method === 'cartao') {
+        inputDiv.innerHTML = '<input type="text" placeholder="Número do cartão">';
+        pixDiv.style.display = 'none';
+    } else if(method === 'pix') {
+        inputDiv.innerHTML = '<input type="text" placeholder="Digite sua chave Pix para pagamento">';
+        pixDiv.style.display = 'block';
+    } else if(method === 'qrcode') {
+        inputDiv.innerHTML = '';
+        pixDiv.style.display = 'block';
+    }
+}
+</script>
+
 </body>
 </html>
